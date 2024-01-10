@@ -1,4 +1,10 @@
+- fix `__init__.py`
+- install:
+```
+pip install git+https://github.com/initialneil/FileLock.git
+```
 
+-----
 ========
 FileLock
 ========
