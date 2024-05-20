@@ -1,17 +1,20 @@
 By Neil Z. SHAO:
 - fix `__init__.py`
+- rename to SimpleFileLock to avoid conflict
 - install:
 ```
-pip install git+https://github.com/initialneil/FileLock.git
+pip install git+https://github.com/initialneil/SimpleFileLock.git
 ```
 
 - example 1:
 ```
+from simple_filelock import SimpleFileLock
+
 lock_fn = ...
 
 # lock or skip
 lock_fn = lock_fn + '.lock' if os.name == 'nt' else lock_fn
-locker = FileLock(lock_fn, timeout=0.2)
+locker = SimpleFileLock(lock_fn, timeout=0.2)
 lock_file = locker.lock_file if os.name == 'nt' else locker.lockfile
 
 try:
@@ -30,12 +33,14 @@ locker.release()
 
 - example 2:
 ```
+from simple_filelock import SimpleFileLock
+
 lock_fn = ...
 
 # lock or skip
 lock_fn = lock_fn + '.lock' if os.name == 'nt' else lock_fn
 try:
-    with FileLock(lock_fn, timeout=0.2):
+    with SimpleFileLock(lock_fn, timeout=0.2):
         print("Lock success")
         # do stuff...
     
@@ -46,7 +51,7 @@ except:
 ```
 
 -----
-FileLock
+SimpleFileLock
 ========
 
     A file locking mechanism that has context-manager support so 
