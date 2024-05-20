@@ -1,7 +1,7 @@
 from distutils.core import setup
 
 setup(
-    name='SimpleFileLock',
+    name='simple_filelock',
     version='0.1.0',
     author='Evan Fosmark',
     author_email='me@evanfosmark.com',
